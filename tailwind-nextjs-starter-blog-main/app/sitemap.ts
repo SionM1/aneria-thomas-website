@@ -14,8 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: post.lastmod || post.date,
     }))
 
-  // Update to match your actual pages
-  const routes = ['', 'about', 'portfolio', 'blog', 'resume', 'contact'].map((route) => ({
+  const routes = ['', 'about', 'gallery', 'exhibitions', 'contact'].map((route) => ({
     url: `${siteUrl}/${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))

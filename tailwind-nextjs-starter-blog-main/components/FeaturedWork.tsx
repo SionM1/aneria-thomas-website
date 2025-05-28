@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface FeaturedWorkProps {
   className?: string
@@ -9,6 +10,7 @@ interface FeaturedWorkProps {
 export default function FeaturedWork({ className = '' }: FeaturedWorkProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,6 +41,10 @@ export default function FeaturedWork({ className = '' }: FeaturedWorkProps) {
     { id: 5, title: 'Artwork 5' },
   ]
 
+  const navigateToGallery = () => {
+    router.push('/gallery')
+  }
+
   return (
     <div 
       ref={sectionRef}
@@ -67,7 +73,7 @@ export default function FeaturedWork({ className = '' }: FeaturedWorkProps) {
         </div>
       </div>
 
-      {/* Full-width Horizontal Scrolling Gallery - Spans entire viewport */}
+      {/* Full-width Horizontal Scrolling Gallery - Three cards per view */}
       <div 
         className={`w-full transition-all duration-1200 ease-out ${
           isVisible 
@@ -89,10 +95,6 @@ export default function FeaturedWork({ className = '' }: FeaturedWorkProps) {
                 style={{ 
                   transitionDelay: `${600 + index * 150}ms`,
                   width: 'calc((100vw - 84px) / 3)' // 3 cards per viewport, accounting for gaps and padding
-                }}
-                onClick={() => {
-                  // TODO: Navigate to gallery page with this artwork
-                  console.log(`Navigate to artwork ${artwork.id}`)
                 }}
               >
                 {/* Artwork Container */}
@@ -140,11 +142,8 @@ export default function FeaturedWork({ className = '' }: FeaturedWorkProps) {
           style={{ transitionDelay: '1000ms' }}
         >
           <button 
-            className="bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-40 text-white px-10 py-4 rounded-full hover:bg-opacity-30 hover:scale-105 transition-all duration-300 font-semibold text-lg drop-shadow-lg"
-            onClick={() => {
-              // TODO: Navigate to full gallery
-              console.log('Navigate to gallery')
-            }}
+            className="bg-orange bg-opacity-20 backdrop-blur-sm border border-white border-opacity-40 text-white px-10 py-4 rounded-full hover:bg-opacity-30 hover:scale-105 transition-all duration-300 font-semibold text-lg drop-shadow-lg"
+            onClick={navigateToGallery}
           >
             View All Work
           </button>
