@@ -1,23 +1,19 @@
-import { Authors, allAuthors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import AuthorLayout from '@/layouts/AuthorLayout'
-import { coreContent } from 'pliny/utils/contentlayer'
-import { genPageMetadata } from 'app/seo'
+import ParallaxAbout from '@/components/ParallaxAbout'
+import AboutSections from '@/components/AboutSections'
 
-export const metadata = genPageMetadata({ 
-  title: 'About - Aneira Thomas',
-  description: 'Contemporary artist celebrating the intricate patterns and textures found in the natural world through oil paints and distemper.'
-})
-
-export default function Page() {
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
-  const mainContent = coreContent(author)
-
+export default function AboutPage() {
   return (
-    <>
-      <AuthorLayout content={mainContent}>
-        <MDXLayoutRenderer code={author.body.code} />
-      </AuthorLayout>
-    </>
+    <div className="relative">
+      {/* Break out of the container completely */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-screen">
+        {/* Parallax Hero Section */}
+        <ParallaxAbout />
+        
+        {/* About Content Sections */}
+        <div className="bg-black bg-opacity-80 py-20">
+          <AboutSections />
+        </div>
+      </div>
+    </div>
   )
 }
