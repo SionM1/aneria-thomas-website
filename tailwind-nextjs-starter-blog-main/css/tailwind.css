@@ -3,6 +3,7 @@
 @plugin '@tailwindcss/typography';
 @source '../node_modules/pliny';
 @custom-variant dark (&:where(.dark, .dark *));
+@import 'locomotive-scroll/dist/locomotive-scroll.css';  /* Dont know if this is needed later job */  
 
 /* Core theme configuration */
 @theme {
