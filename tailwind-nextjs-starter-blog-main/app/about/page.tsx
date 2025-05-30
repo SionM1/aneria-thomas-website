@@ -18,7 +18,7 @@ export default function AboutPage() {
       
       {/* Spacer to push the footer down */}
       <div className="h-screen"></div>
-      <div className="h-[270vh]"></div> {/* Adjust this height based on your content */}
+      <div className="h-[250vh]"></div> {/* Adjust this height based on your content */}
     </div>
   )
 }

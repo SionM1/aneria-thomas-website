@@ -19,24 +19,24 @@ export default function AboutSections() {
   const sections: SectionData[] = [
     {
       id: 1,
-      title: "Aneria's Background",
-      content: "Aneria grew up in [location] surrounded by [details]. Her early experiences with art began when [background story]. This connection to her roots deeply influences her artistic expression, creating a unique perspective that can be seen throughout her work. The cultural elements from her upbringing are often subtly woven into her pieces, creating a rich tapestry of personal history and artistic vision.",
+      title: "Aneira's Background",
+      content: "Aneira grew up in [location] surrounded by [details]. Her early experiences with art began when [background story]. This connection to her roots deeply influences her artistic expression, creating a unique perspective that can be seen throughout her work. The cultural elements from her upbringing are often subtly woven into her pieces, creating a rich tapestry of personal history and artistic vision.",
       imagePath: "/static/images/AneiraWorking1.jpeg",
-      imageAlt: "Aneria in her early years"
+      imageAlt: "Aneira in her early years"
     },
     {
       id: 2,
       title: "Connection to Nature",
-      content: "Nature plays a central role in Aneria's artistic practice. She finds inspiration in [specific natural elements] and translates these organic forms into her work through [techniques/approaches]. Her process involves [details about practice], allowing the natural world to guide her creative decisions. This deep connection to the environment is evident in her use of color, texture, and composition.",
+      content: "Nature plays a central role in Aneira's artistic practice. She finds inspiration in [specific natural elements] and translates these organic forms into her work through [techniques/approaches]. Her process involves [details about practice], allowing the natural world to guide her creative decisions. This deep connection to the environment is evident in her use of color, texture, and composition.",
       imagePath: "/static/images/AneiraWorking2.jpeg", 
-      imageAlt: "Aneria's nature-inspired work"
+      imageAlt: "Aneira's nature-inspired work"
     },
     {
       id: 3,
       title: "Artistic Philosophy",
-      content: "At the core of Aneria's work is a belief that [artistic philosophy]. She approaches each piece with [methodology/mindset], creating art that [impact/purpose]. Through her ongoing exploration of [themes/techniques], Aneria continues to develop a body of work that resonates with viewers on multiple levels, inviting them to experience art as a form of connection and reflection.",
+      content: "At the core of Aneira's work is a belief that [artistic philosophy]. She approaches each piece with [methodology/mindset], creating art that [impact/purpose]. Through her ongoing exploration of [themes/techniques], Aneria continues to develop a body of work that resonates with viewers on multiple levels, inviting them to experience art as a form of connection and reflection.",
       imagePath: "/static/images/AneiraWorking3.jpeg", 
-      imageAlt: "Aneria in her studio"
+      imageAlt: "Aneira in her studio"
     }
   ]
 

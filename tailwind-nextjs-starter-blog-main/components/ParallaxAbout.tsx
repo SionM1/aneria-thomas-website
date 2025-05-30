@@ -131,7 +131,7 @@ export default function ParallaxAbout() {
       <div className="parallax-layer absolute inset-0 flex items-center justify-center" data-depth="0.1">
         <div className="w-full px-6 text-center z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-8 drop-shadow-lg">
-            About Aneria
+            About Aneira
           </h1>
           <p className="text-xl text-white mb-12 drop-shadow-md max-w-4xl mx-auto">
             Artist, nature enthusiast, and creator of evocative visual experiences.

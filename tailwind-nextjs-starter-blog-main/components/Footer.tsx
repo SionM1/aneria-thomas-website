@@ -24,7 +24,7 @@ export default function Footer() {
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
+          <div>Website Created By <Link href="https://www.linkedin.com/in/si%C3%B4n-morgan-b28994295/">Siôn Morgan</Link></div>
         </div>
       </div>
     </footer>
