@@ -13,7 +13,6 @@ export default async function Page() {
         </div>
       </div>
 
-  
       {/* Featured Work section with transparent background */}
       <div className="bg-transparent">
         <FeaturedWork />
