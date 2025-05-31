@@ -12,12 +12,12 @@ export interface Artwork {
 
 export const artworksData: Artwork[] = [
   {
-    slug: 'CynffonYTân',
+    slug: 'CynffonYTan',
     title: 'Cynffon Y Tân',
     medium: 'Oil on Canvas',
-    size: '45 x 75 cm"',
+    size: '45 x 75 cm',
     description: 'A vibrant exploration of color and light capturing the ethereal beauty of a summer sunset.',
-    imagePath: '/static/images/gallery/CynffonYTân.webp',
+    imagePath: '/static/images/gallery/CynffonYTan.jpeg',
     year: 2023,
     available: true
   },
@@ -27,7 +27,7 @@ export const artworksData: Artwork[] = [
     medium: 'Original painting in oil on canvas.',
     size: '31 x 92 cm',
     description: 'Contemporary cityscape reflecting the dynamic energy of modern urban life.',
-    imagePath: '/static/images/gallery/Duckie.webp',
+    imagePath: '/static/images/gallery/Duckie.jpeg',
     year: 2023,
     available: false
   },
@@ -37,7 +37,7 @@ export const artworksData: Artwork[] = [
     medium: 'Original painting in oil on canvas.',
     size: '45 x 75 cm',
     description: 'Delicate watercolor study capturing the quiet serenity of dawn breaking through forest mist.',
-    imagePath: '/static/images/gallery/MappingtheChangingColours.webp',
+    imagePath: '/static/images/gallery/MappingtheChangingColours.jpeg',
     year: 2022,
     available: true
   },
@@ -47,7 +47,7 @@ export const artworksData: Artwork[] = [
     medium: 'Original painting in oil on canvas.',
     size: '25 x 81 cm',
     description: 'Delicate watercolor study capturing the quiet serenity of dawn breaking through forest mist.',
-    imagePath: '/static/images/gallery/SlugTrail.webp',
+    imagePath: '/static/images/gallery/SlugTrail.jpeg',
     year: 2022,
     available: true
   },
@@ -57,7 +57,7 @@ export const artworksData: Artwork[] = [
     medium: 'Original painting in oil on canvas.',
     size: '41 x 81 cm',
     description: 'Delicate watercolor study capturing the quiet serenity of dawn breaking through forest mist.',
-    imagePath: '/static/images/gallery/WiltedOrchidNo.1.webp',
+    imagePath: '/static/images/gallery/WiltedOrchidNo.1.jpeg',
     year: 2022,
     available: true
   },
@@ -67,16 +67,16 @@ export const artworksData: Artwork[] = [
     medium: 'Original painting in oil on canvas.',
     size: '41 x 81 cm',
     description: 'Delicate watercolor study capturing the quiet serenity of dawn breaking through forest mist.',
-    imagePath: '/static/images/gallery/WiltedOrchidNo.2.webp',
+    imagePath: '/static/images/gallery/WiltedOrchidNo.2.jpeg',
     year: 2022,
     available: true
   }
 ]
 
-export const getArtworkBySlug = (slug: string): Artwork | undefined => {
-  return artworksData.find(artwork => artwork.slug === slug)
+export function getAllArtworks(): Artwork[] {
+  return artworksData
 }
 
-export const getAllArtworks = (): Artwork[] => {
-  return artworksData
+export function getArtworkBySlug(slug: string): Artwork | undefined {
+  return artworksData.find((artwork) => artwork.slug === slug)
 }
