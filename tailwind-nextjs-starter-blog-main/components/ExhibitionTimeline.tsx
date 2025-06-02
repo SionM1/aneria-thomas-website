@@ -31,8 +31,8 @@ export default function ExhibitionTimeline({ exhibitions }: ExhibitionTimelinePr
 
   // ADJUSTABLE PARAMETERS - Change these to control the animation
   const ANIMATION_CONFIG = {
-    startDelay: 90,        // pixels - how much to scroll before line starts drawing
-    speedMultiplier: 2.0,   // overall speed multiplier (1.0 = normal, 2.0 = 2x faster)
+    startDelay: 300,        // pixels - how much to scroll before line starts drawing
+    speedMultiplier: 1.7,   // overall speed multiplier (1.0 = normal, 2.0 = 2x faster)
     easingPower: 1.0,       // curve steepness (1.0 = linear, 2.0 = quadratic, 3.0 = cubic)
     // Higher easingPower = starts slower, ends faster
   }
@@ -77,7 +77,7 @@ export default function ExhibitionTimeline({ exhibitions }: ExhibitionTimelinePr
       if (ref) observer.observe(ref)
     })
 
-    // Easing curve progression - starts slow, gets faster
+    // Replace the handleScroll function with this version that handles short delays properly:
     const handleScroll = () => {
       if (!timelineRef.current) return
       
@@ -92,12 +92,21 @@ export default function ExhibitionTimeline({ exhibitions }: ExhibitionTimelinePr
         const visibleTop = Math.max(0, -rect.top)
         const visibleHeight = Math.min(rect.height, windowHeight - Math.max(0, rect.top))
         
-        // FIXED: Proper start delay implementation
-        if (visibleTop < ANIMATION_CONFIG.startDelay) {
+        // Calculate total scroll distance from when timeline first becomes visible
+        const timelineEntryPoint = Math.max(0, windowHeight - rect.height)
+        const totalScrolled = windowHeight - rect.top
+        const adjustedScrolled = Math.max(0, totalScrolled - timelineEntryPoint)
+        
+        // Debug info
+        console.log('adjustedScrolled:', adjustedScrolled, 'delay:', ANIMATION_CONFIG.startDelay)
+        
+        // FIXED: Use adjusted scroll calculation for better short delay handling
+        if (adjustedScrolled < ANIMATION_CONFIG.startDelay) {
           progress = 0 // Don't start until we've scrolled past the delay
+          console.log('DELAYED - not starting yet')
         } else {
           // Calculate progress starting from the delay point
-          const scrolledPastDelay = visibleTop - ANIMATION_CONFIG.startDelay
+          const scrolledPastDelay = adjustedScrolled - ANIMATION_CONFIG.startDelay
           const totalScrollableHeight = rect.height + windowHeight - ANIMATION_CONFIG.startDelay
           const rawProgress = scrolledPastDelay / totalScrollableHeight
           
@@ -106,6 +115,7 @@ export default function ExhibitionTimeline({ exhibitions }: ExhibitionTimelinePr
           
           // Apply speed multiplier
           progress = Math.min(1, Math.max(0, easedProgress * ANIMATION_CONFIG.speedMultiplier))
+          console.log('STARTED - scrolledPastDelay:', scrolledPastDelay)
         }
       }
       
