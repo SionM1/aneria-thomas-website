@@ -79,7 +79,7 @@ export default function RootLayout({
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
+      <body className="min-h-screen flex flex-col bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           
@@ -89,7 +89,7 @@ export default function RootLayout({
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <div className="flex h-screen flex-col justify-between font-sans">
-                <main className="mb-auto">{children}</main>
+                <main className="flex-1">{children}</main>
                 <Footer />
               </div>
             </SearchProvider>
