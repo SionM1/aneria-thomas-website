@@ -96,10 +96,7 @@ export default function ExhibitionTimeline({ exhibitions }: ExhibitionTimelinePr
         const timelineEntryPoint = Math.max(0, windowHeight - rect.height)
         const totalScrolled = windowHeight - rect.top
         const adjustedScrolled = Math.max(0, totalScrolled - timelineEntryPoint)
-        
-        // Debug info
-        console.log('adjustedScrolled:', adjustedScrolled, 'delay:', ANIMATION_CONFIG.startDelay)
-        
+  
         // FIXED: Use adjusted scroll calculation for better short delay handling
         if (adjustedScrolled < ANIMATION_CONFIG.startDelay) {
           progress = 0 // Don't start until we've scrolled past the delay
@@ -118,9 +115,6 @@ export default function ExhibitionTimeline({ exhibitions }: ExhibitionTimelinePr
           console.log('STARTED - scrolledPastDelay:', scrolledPastDelay)
         }
       }
-      
-      // Debug logging
-      console.log('Scroll Progress:', progress.toFixed(2))
       
       setScrollProgress(progress)
     }
@@ -174,12 +168,7 @@ export default function ExhibitionTimeline({ exhibitions }: ExhibitionTimelinePr
   return (
     <div className="w-full py-12" ref={timelineRef}>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Debug info - remove this later */}
-        <div className="fixed top-4 right-4 bg-black text-white p-2 rounded text-sm z-50">
-          Progress: {(scrollProgress * 100).toFixed(1)}%
-        </div>
-        
+         
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           
           {/* Left Column - Dynamic Winding Line */}
