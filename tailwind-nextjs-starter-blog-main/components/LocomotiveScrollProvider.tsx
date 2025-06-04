@@ -6,12 +6,12 @@ import 'locomotive-scroll/dist/locomotive-scroll.css'
 
 interface LocomotiveScrollProviderProps {
   children: ReactNode
-  options?: any
+  options?: Record<string, unknown>
 }
 
-export default function LocomotiveScrollProvider({ 
-  children, 
-  options = {} 
+export default function LocomotiveScrollProvider({
+  children,
+  options = {},
 }: LocomotiveScrollProviderProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const locomotiveScrollRef = useRef<LocomotiveScroll | null>(null)
