@@ -1,0 +1,27 @@
+---
+title: 'Parallax Reveal Effect Example'
+date: '2024-01-15'
+tags: ['design', 'parallax', 'effects']
+draft: false
+summary: 'Demonstrating the parallax reveal effect in action.'
+---
+
+# Parallax Reveal Effect
+
+<ParallaxReveal backgroundImage="/static/images/your-background.jpg" height="h-[150vh]">
+  <div className="flex min-h-screen flex-col items-center justify-center bg-white/90 backdrop-blur-sm">
+    <div className="mx-auto max-w-4xl p-8 text-center">
+      <h2 className="mb-6 text-4xl font-bold">Content Over Parallax</h2>
+      <p className="mb-8 text-lg text-gray-700">
+        This content scrolls over the revealing background image.
+      </p>
+    </div>
+  </div>
+
+  <div className="min-h-screen bg-white p-8">
+    <div className="mx-auto max-w-4xl">
+      <h3 className="mb-4 text-3xl font-bold">More Content</h3>
+      <p className="text-gray-700">Continue your story here as the background is fully revealed.</p>
+    </div>
+  </div>
+</ParallaxReveal>

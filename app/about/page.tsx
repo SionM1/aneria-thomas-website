@@ -1,20 +1,28 @@
-import { Authors, allAuthors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import AuthorLayout from '@/layouts/AuthorLayout'
-import { coreContent } from 'pliny/utils/contentlayer'
-import { genPageMetadata } from 'app/seo'
+import { Covered_By_Your_Grace } from 'next/font/google'
+import ParallaxAbout from '@/components/ParallaxAbout'
+import AboutSections from '@/components/AboutSections'
 
-export const metadata = genPageMetadata({ title: 'About' })
+const coveredByYourGrace = Covered_By_Your_Grace({
+  weight: '400',
+  subsets: ['latin'],
+})
 
-export default function Page() {
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
-  const mainContent = coreContent(author)
-
+export default function AboutPage() {
   return (
-    <>
-      <AuthorLayout content={mainContent}>
-        <MDXLayoutRenderer code={author.body.code} />
-      </AuthorLayout>
-    </>
+    <div className="relative w-full">
+      {/* Break out of the container completely */}
+      <div className="absolute left-1/2 w-screen -translate-x-1/2 transform">
+        {/* Parallax Hero Section */}
+        <ParallaxAbout coveredByYourGrace={coveredByYourGrace} />
+
+        {/* About Content Sections */}
+        <div className="bg-opacity-90 bg-teal-900 py-20">
+          <AboutSections coveredByYourGrace={coveredByYourGrace} />
+        </div>
+      </div>
+      {/* Spacer to push the footer down */}
+      <div className="h-screen"></div>
+      <div className="h-[250vh]"></div> {/* Adjust this height based on your content */}
+    </div>
   )
 }

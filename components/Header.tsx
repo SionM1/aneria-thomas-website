@@ -15,35 +15,43 @@ const Header = () => {
   return (
     <header className={headerClass}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
-        <div className="flex items-center justify-between">
-          <div className="mr-3">
+        <div className="group flex items-center justify-between">
+          <div className="mr-3 transition-transform duration-300 ease-in-out group-hover:scale-110">
             <Logo />
           </div>
           {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="hidden h-6 text-2xl font-semibold sm:block">
-              {siteMetadata.headerTitle}
+            <div className="group-hover:text-primary-500 hidden h-6 text-2xl font-semibold transition-colors duration-300 ease-in-out sm:block">
+              Aneira Thomas
             </div>
           ) : (
             siteMetadata.headerTitle
           )}
         </div>
       </Link>
-      <div className="flex items-center space-x-4 leading-5 sm:-mr-6 sm:space-x-6">
-        <div className="no-scrollbar hidden max-w-40 items-center gap-x-4 overflow-x-auto sm:flex md:max-w-72 lg:max-w-96">
+      <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
+        <div className="hidden sm:block">
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (
               <Link
                 key={link.title}
                 href={link.href}
-                className="hover:text-primary-500 dark:hover:text-primary-400 m-1 font-medium text-gray-900 dark:text-gray-100"
+                className="hover:text-primary-500 dark:hover:text-primary-400 group relative p-1 font-medium text-gray-900 transition-all duration-300 ease-in-out sm:p-4 dark:text-gray-100"
               >
-                {link.title}
+                <span className="relative z-10">{link.title}</span>
+                {/* Underline animation */}
+                <span className="bg-primary-500 absolute bottom-0 left-1/2 h-0.5 w-0 transition-all duration-300 ease-in-out group-hover:left-0 group-hover:w-full"></span>
+                {/* Background hover effect */}
+                <span className="bg-primary-50 dark:bg-primary-900/20 absolute inset-0 rounded-md opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"></span>
               </Link>
             ))}
         </div>
-        <SearchButton />
-        <ThemeSwitch />
+        <div className="transition-transform duration-300 ease-in-out hover:scale-110">
+          <SearchButton />
+        </div>
+        <div className="transition-transform duration-300 ease-in-out hover:scale-110 hover:rotate-12">
+          <ThemeSwitch />
+        </div>
         <MobileNav />
       </div>
     </header>

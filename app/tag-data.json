@@ -1,4 +1,7 @@
 {
+  "design": 1,
+  "parallax": 1,
+  "effects": 1,
   "next-js": 6,
   "tailwind": 3,
   "guide": 5,
